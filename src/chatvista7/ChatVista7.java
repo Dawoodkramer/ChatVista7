@@ -57,7 +57,7 @@ public class ChatVista7 {
                     // If login failed, continue loop to show menu again
                 }
             } else if (initialChoice.equals("2")) {
-                // Register option - use existing registration code
+                // Register option 
                 Object[] registrationResult = registerUser(li);
                 if (registrationResult != null) {
                     username = (String) registrationResult[0];
@@ -75,7 +75,7 @@ public class ChatVista7 {
             }
         }
         
-        // Part 2 & 3: QuickChat messaging functionality - only if registered and logged in
+        // Part 2 & 3: messaging functionality - only if registered and logged in
         if (isRegistered && isLoggedIn) {
             // Creating Message object for messaging functionality
             Message messageHandler = new Message();
@@ -130,8 +130,6 @@ public class ChatVista7 {
     
     /**
      * Method to handle user registration using existing validation methods
-     * @param li The MethodDefinitions object containing validation methods
-     * @return Object array containing registration data [username, password, cellnumber, firstName, lastName]
      */
     private static Object[] registerUser(MethodDefinitions li) {
         String username;
@@ -202,12 +200,6 @@ public class ChatVista7 {
     
     /**
      * Method to handle user login with validation loop
-     * @param li The MethodDefinitions object containing login methods
-     * @param registeredUsername The registered username
-     * @param registeredPassword The registered password  
-     * @param firstName The user's first name
-     * @param lastName The user's last name
-     * @return boolean indicating if login was successful
      */
     private static boolean loginUser(MethodDefinitions li, String registeredUsername, String registeredPassword, String firstName, String lastName) {
         // Login validation loop - keep asking until correct credentials or user cancels
@@ -255,7 +247,6 @@ public class ChatVista7 {
 
     /**
      * Method to handle sending multiple messages
-     * @param messageHandler The Message object to handle message operations
      */
     private static void sendMessages(Message messageHandler) {
         // Ask user how many messages they want to send
@@ -299,8 +290,10 @@ public class ChatVista7 {
                 while (true) {
                     messageText = JOptionPane.showInputDialog("Enter your message (max 250 characters):");
                     
-                    if (messageText == null) {
-                        return; // User cancelled
+                    if (messageText.length() == 0 || messageText.length() > 250) {
+                        JOptionPane.showMessageDialog(null, "You have exceeded 250 characters or you have not entered a message, please re-enter you message");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Message captured successfully");
                     }
                     
                     String messageValidation = messageHandler.checkMessageLength(messageText);
@@ -339,14 +332,14 @@ public class ChatVista7 {
                     // Add message to disregarded messages array
                     messageHandler.addToDisregardedMessages(messageID, messageHash, recipient, messageText, i);
                     JOptionPane.showMessageDialog(null, "Message disregarded.");
-                    i--; // Don't count this message
+                    i--; 
                 } else if (action.equals("Store")) {
                     // Add message to stored messages array
                     messageHandler.addToStoredMessages(messageID, messageHash, recipient, messageText, i);
                     // Store message in JSON file
                     messageHandler.storeMessage(messageID, messageHash, recipient, messageText, i);
                     JOptionPane.showMessageDialog(null, "Message successfully stored.");
-                    i--; // Don't count this message as sent
+                    i--;
                 }
             }
             
@@ -361,7 +354,6 @@ public class ChatVista7 {
     
     /**
      * Method to show recent messages
-     * @param messageHandler The Message object to handle message operations
      */
     private static void showRecentMessages(Message messageHandler) {
         String recentMessages = messageHandler.displaySentMessages();
@@ -374,7 +366,6 @@ public class ChatVista7 {
     
     /**
      * Method to display reports
-     * @param messageHandler The Message object to handle message operations
      */
     private static void displayReports(Message messageHandler) {
         String[] reportOptions = {
@@ -409,7 +400,6 @@ public class ChatVista7 {
     
     /**
      * Method to search messages
-     * @param messageHandler The Message object to handle message operations
      */
     private static void searchMessages(Message messageHandler) {
         String[] searchOptions = {
@@ -446,7 +436,6 @@ public class ChatVista7 {
     
     /**
      * Method to delete a message
-     * @param messageHandler The Message object to handle message operations
      */
     private static void deleteMessage(Message messageHandler) {
         String messageHash = JOptionPane.showInputDialog("Enter Message Hash to delete:");
@@ -457,8 +446,7 @@ public class ChatVista7 {
     }
     
     /**
-     * Enhanced: Method to view all disregarded messages
-     * @param messageHandler The Message object to handle message operations
+     * Method to view all disregarded messages
      */
     private static void viewDisregardedMessages(Message messageHandler) {
         String disregardedMessages = messageHandler.viewDisregardedMessages();
@@ -467,7 +455,6 @@ public class ChatVista7 {
     
     /**
      * Enhanced: Method to view all stored messages  
-     * @param messageHandler The Message object to handle message operations
      */
     private static void viewStoredMessages(Message messageHandler) {
         String storedMessages = messageHandler.viewStoredMessages();

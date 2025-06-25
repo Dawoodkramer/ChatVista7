@@ -14,12 +14,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 
 /**
- * Message class to handle messaging functionality for QuickChat
- * Contains methods for message validation, creation, storage, and array management
- * 
- * AI Attribution: JSON storage and reading functionality was generated using ChatGPT (OpenAI, 2024)
- * to create methods for storing and reading messages in JSON format.
- * 
+ *
  * @author lab_services_student
  */
 public class Message {
@@ -55,7 +50,7 @@ public class Message {
     /**
      * Method to check if the message ID is not more than ten characters
      * @param messageID The message ID to validate
-     * @return true if message ID is valid, false otherwise
+     * @return true if message ID is valid, 
      */
     public boolean checkMessageID(String messageID) {
         return messageID != null && messageID.length() <= 10;
@@ -265,7 +260,8 @@ public class Message {
     
     /**
      * Part 3: Method to search for all messages sent to a particular recipient
-     * Enhanced to search both sent messages and stored messages from JSON
+     * search both sent messages and stored messages from JSON
+     * AI Attribution: This method was generated using ChatGPT (OpenAI, 2024)
      * @param searchRecipient The recipient to search for
      * @return String containing all messages for the recipient
      */
@@ -378,7 +374,8 @@ public class Message {
     }
     
     /**
-     * Enhanced: Method to view all disregarded messages from JSON file
+     * Method to view all disregarded messages from JSON file
+     * AI Attribution: This method was generated using ChatGPT (OpenAI, 2024)
      * @return String containing all disregarded messages
      */
     public String viewDisregardedMessages() {
@@ -441,7 +438,7 @@ public class Message {
     }
     
     /**
-     * Enhanced: Method to view all stored messages from JSON file
+     * Method to view all stored messages from JSON file
      * @return String containing all stored messages
      */
     public String viewStoredMessages() {
@@ -607,7 +604,7 @@ public class Message {
     
     /**
      * Method to return the total number of messages sent
-     * @return int total number of messages sent
+     * @return int total number of messages 
      */
     public int returnTotalMessages() {
         return totalMessagesSent;

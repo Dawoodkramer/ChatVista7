@@ -188,8 +188,6 @@ public class MessageTest {
         String expResult = "Where are you? You are late! I have asked you to be on time.";
         String result = message.displayLongestMessage();
         
-        // The longest message should be from stored messages, but displayLongestMessage only checks sent messages
-        // So the longest sent message should be "Did you get the cake?" or "It is dinner time!"
         assertTrue("Should return longest sent message", result.contains("Longest Message:"));
     }
 
@@ -215,7 +213,7 @@ public class MessageTest {
         String recipient = "+27838884567";
         String result = message.searchByRecipient(recipient);
         
-        // Enhanced search now shows both [SENT] and [STORED] messages
+       
         assertTrue("Should contain messages for recipient", result.contains("Messages for " + recipient));
     }
 
