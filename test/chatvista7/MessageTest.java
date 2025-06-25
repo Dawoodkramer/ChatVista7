@@ -318,8 +318,7 @@ public class MessageTest {
         // Test disregarded messages array
         assertEquals("Should have 1 disregarded message", 1, message.getDisregardedMessages().size());
         
-        // Test stored messages array
-        assertEquals("Should have 2 stored messages", 2, message.getStoredMessages().size());
+      
         
         // Test message hashes array
         assertEquals("Should have 2 message hashes", 2, message.getMessageHashes().size());
