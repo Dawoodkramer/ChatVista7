@@ -1,0 +1,16 @@
+{
+  "messageID": "1101517161",
+  "messageNumber": 1,
+  "messageHash": "11:1:TODAYWEDNESDAY",
+  "recipient": "+27676326084",
+  "messageText": "today is wednesday",
+  "timestamp": "2025-06-25T10:44:18.728477600"
+},
+{
+  "messageID": "9507154278",
+  "messageNumber": 2,
+  "messageHash": "95:2:TOMORROWTHURSDAY",
+  "recipient": "+27676326084",
+  "messageText": "tomorrow is thursday",
+  "timestamp": "2025-06-25T10:44:58.832360800"
+},
